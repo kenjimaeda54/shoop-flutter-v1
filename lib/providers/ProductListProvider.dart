@@ -12,7 +12,7 @@ import '../models/ProductModel.dart';
 //mixin eu consigo varios minxin
 //https://www.treinaweb.com.br/blog/o-que-sao-mixins-e-qual-sua-importancia-no-dart
 //resumindo estou pegando as funicionalidades do ChangeNotificer e disponibilizando para nos
-class ProductList with ChangeNotifier {
+class ProductListProvider with ChangeNotifier {
   final List<ProductModel> _products = mockShop;
 
   //se eu chamar apaenas products ao inves [...products]

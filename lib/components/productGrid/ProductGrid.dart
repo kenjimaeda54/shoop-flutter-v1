@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopp/models/ProducList.dart';
+import 'package:shopp/models/CartProductModel.dart';
+import 'package:shopp/providers/CartProductProvider.dart';
+import 'package:shopp/providers/ProductListProvider.dart';
 import 'package:shopp/models/ProductModel.dart';
 import '../../components/singleProduct/SingleProduct.dart';
 import 'package:provider/provider.dart';
@@ -11,9 +13,9 @@ class ProductGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ProductList state = Provider.of(context);
+    final ProductListProvider stateProduct = Provider.of(context);
     List<ProductModel> products =
-        showAllProducts ? state.getItens() : state.getItensFilter();
+    showAllProducts ? stateProduct.getItens() : stateProduct.getItensFilter();
 
     return GridView.builder(
         padding: const EdgeInsets.all(10),
@@ -30,7 +32,8 @@ class ProductGrid extends StatelessWidget {
 
         //uso o value,porque já existe um changeNotifierProvider fornecendo
         //uma coleção no main.dart
-        itemBuilder: (ctx, index) => ChangeNotifierProvider.value(
-            value: products[index], child: const SingleShop()));
+        itemBuilder: (ctx, index) =>
+            ChangeNotifierProvider.value(
+                value: products[index], child: const SingleShop()));
   }
 }

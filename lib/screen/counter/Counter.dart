@@ -28,6 +28,7 @@ class _CounterState extends State<Counter> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Counter"),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Column(
         children: [
