@@ -4,7 +4,7 @@ import 'package:shopp/providers/CartProductProvider.dart';
 import '../../models/CartProductModel.dart';
 
 class SingleCartProduct extends StatelessWidget {
-  final CardProductModel cartModel;
+  final CartProductModel cartModel;
 
   const SingleCartProduct(this.cartModel, {Key? key}) : super(key: key);
 

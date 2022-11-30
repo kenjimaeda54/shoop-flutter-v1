@@ -4,9 +4,9 @@ import 'package:shopp/models/CartProductModel.dart';
 import 'package:shopp/models/ProductModel.dart';
 
 class CartProductProvider with ChangeNotifier {
-  Map<String, CardProductModel> _cardProductModel = {};
+  Map<String, CartProductModel> _cardProductModel = {};
 
-  Map<String, CardProductModel> getAllProcut() => {..._cardProductModel};
+  Map<String, CartProductModel> getAllProcut() => {..._cardProductModel};
 
   int get itemCount {
     return _cardProductModel.length;
@@ -25,7 +25,7 @@ class CartProductProvider with ChangeNotifier {
     if (_cardProductModel.containsKey(productModel.id)) {
       _cardProductModel.update(
         productModel.id,
-        (it) => CardProductModel(
+        (it) => CartProductModel(
             name: it.name,
             price: it.price,
             id: it.id,
@@ -36,7 +36,7 @@ class CartProductProvider with ChangeNotifier {
     } else {
       _cardProductModel.putIfAbsent(
         productModel.id,
-        () => CardProductModel(
+        () => CartProductModel(
             name: productModel.title,
             price: productModel.price,
             id: "${Random().nextDouble().toString()}-${productModel.price}-${productModel.title}",
