@@ -14,7 +14,7 @@ E possivel selecionar os favoritos,colocar no carrinho e consultar os comparados
 - Ele utiliza do conceito do observer por isso preciso notificar as mudancas
 - 
 
-```flutter
+```dart
 //main
  MultiProvider(
       //precisa importar o import 'package:provider/provider.dart';
