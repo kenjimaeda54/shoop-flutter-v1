@@ -12,6 +12,7 @@ E possivel selecionar os favoritos,colocar no carrinho e consultar os comparados
 - Para recuperar todos criei um metodo com spread operator,assim estou retornaod a lista original e nao uma referencia
 - Quando adiconar ou remover tenho que garantir que seja na lista oirginal
 - Ele utiliza do conceito do observer por isso preciso notificar as mudancas
+- 
 
 ```flutter
 //main
@@ -44,3 +45,29 @@ class ProductListProvider with ChangeNotifier {
 
 
 ```
+
+## 
+- Quando for usar o provider apenas istancio com o contexto
+- Posso em algum momenot usar o mesmo provider em outros lugares e notificar como eu fiz no ProductGrid
+- Assim preciso passar dados via construtor ou rota
+- Repare que estou disponibilizando um novo provider em  ChangeNotifierProvider.value
+- Na proxima tela eu apenas instancio o provider ele esta pronto para uso
+- Posso usar o listner como false assim essa arvore nao sofre um novo render caso o provider mude
+
+```dart
+//single cart
+ CartProductProvider cartProvider = Provider.of(context);
+ 
+ 
+//ProductGrid
+ ChangeNotifierProvider.value(
+                value: products[index], child: const SingleShop()));
+
+//SingleShop
+ final product = Provider.of<ProductModel>(context, listen: false);
+ final cart = Provider.of<CartProductProvider>(context, listen: false);
+
+```
+ 
+
+
