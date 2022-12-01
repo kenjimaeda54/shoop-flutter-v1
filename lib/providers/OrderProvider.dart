@@ -23,7 +23,7 @@ class OrderProvider with ChangeNotifier {
           id: "${Random().nextDouble()}-${_order.length}-${Random().nextDouble()}",
           total: cart.shouldReturnTotalPrice,
           //values e os valores da chave do dicionario ou seja o proprio Cart
-          cart: cart.getAllProcut().values.toList(),
+          products: cart.getAllProcut().values.toList(),
           date: DateTime.now()),
     );
   }
