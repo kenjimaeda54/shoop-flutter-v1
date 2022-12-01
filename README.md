@@ -69,5 +69,27 @@ class ProductListProvider with ChangeNotifier {
 
 ```
  
+##
+- Caso eu deseje que ocorra mudancas na arvore apos uma notificao de um provider posso usar o consumer
+- No exemplo abaixo conforme clica no icone de carrinho aumento o numero de compras no badge, isso e possivel com conusmer
+- Ultimo parametor e o child ele e reponsavel por indicar qual arvore e estatica ou seja nao sofre render
+- Toda vez que aumentar o numero de itens no CartProcutProvider esse consumer sera notificao e renderizara o numero de itemCount
+
+```dart
+  Consumer<CartProductProvider>(
+            child: IconButton(
+                onPressed: handleNavigation,
+                icon: const Icon(Icons.shopping_cart)),
+            builder: (ctx, card, child) =>
+                Badge(
+                  value: "${card.itemCount}",
+                  child: child!,
+                ),
+          )
+
+
+
+```
+
 
 
