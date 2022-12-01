@@ -90,5 +90,24 @@ class ProductListProvider with ChangeNotifier {
 
 ```
 
+## 
+- Para adicionar sempre no inicio usei metodo insert passando index
 
+
+```dart
+
+void addOder(CartProductProvider cart) {
+    _order.insert(
+      0,
+      OrderModel(
+          id: "${Random().nextDouble()}-${_order.length}-${Random().nextDouble()}",
+          total: cart.shouldReturnTotalPrice,
+          //values e os valores da chave do dicionario ou seja o proprio Cart
+          products: cart.getAllProcut().values.toList(),
+          date: DateTime.now()),
+    );
+  }
+
+
+```
 
