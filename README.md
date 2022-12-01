@@ -1,24 +1,23 @@
 # Shoop 
-Aplciacao para entender Provider do flutter
-E possivel selecionar os favoritos,colocar no carrinho e consultar os comparados
+Aplicação para entender Provider do flutter
+E possível selecionar os favoritos, colocar no carrinho e consultar os comparados
 
 
 ## Feature
 - Usei Provider como gerenciador de estados
 - Utilizei o mixin ChangeNotifier do Provider
-- Flutter nao aceita multipla heranca, mas Mixin permite existir varios
-- Mixin a ideia e criar suas funcionalidades e a classe que vai usar com a palavra with basicaimetne ira colcar essa funcionalidades nela
-- Primeior envolvi toda minha aplicacao com meu provider assim toda aplicacao tem acesso aos dados
-- Para recuperar todos criei um metodo com spread operator,assim estou retornaod a lista original e nao uma referencia
-- Quando adiconar ou remover tenho que garantir que seja na lista oirginal
-- Ele utiliza do conceito do observer por isso preciso notificar as mudancas
-- 
+- Flutter não aceita múltipla herança, mas Mixin permite existir vários
+- Mixin a ideia e criar suas funcionalidades e a classe que vai usar com a palavra with basicamente ira colar essas funcionalidades nela
+- Primeiro envolvi toda minha aplicação com meu Multi Provider assim toda aplicação tem acesso aos dados
+- Para recuperar todos criei um método com spread operator, assim estou retornado a lista original e não uma referência
+- Quando adicionar ou remover tenho que garantir que seja na lista original
+- Ele utiliza do conceito do observer, então a cada alteração  preciso notificar as mudanças
+
+
 
 ```dart
 //main
  MultiProvider(
-      //precisa importar o import 'package:provider/provider.dart';
-      //do pacote de provider
       providers: [
         ChangeNotifierProvider(create: (_) => ProductListProvider()),
         ChangeNotifierProvider(create: (_) => CartProductProvider()),
@@ -47,12 +46,12 @@ class ProductListProvider with ChangeNotifier {
 ```
 
 ## 
-- Quando for usar o provider apenas istancio com o contexto
-- Posso em algum momenot usar o mesmo provider em outros lugares e notificar como eu fiz no ProductGrid
-- Assim preciso passar dados via construtor ou rota
+- Quando for usar o provider apenas estancio com o contexto
+- Posso em algum momento usar o mesmo provider em outros lugares e notificar como eu fiz no ProductGrid
+- Assim não preciso passar dados via construtor ou rota
 - Repare que estou disponibilizando um novo provider em  ChangeNotifierProvider.value
-- Na proxima tela eu apenas instancio o provider ele esta pronto para uso
-- Posso usar o listner como false assim essa arvore nao sofre um novo render caso o provider mude
+- Na próxima tela eu apenas instancio o provider ele está pronto para uso
+- Posso usar o listner como false assim essa arvore não sofre um novo render caso o provider mude
 
 ```dart
 //single cart
@@ -70,10 +69,10 @@ class ProductListProvider with ChangeNotifier {
 ```
  
 ##
-- Caso eu deseje que ocorra mudancas na arvore apos uma notificao de um provider posso usar o consumer
-- No exemplo abaixo conforme clica no icone de carrinho aumento o numero de compras no badge, isso e possivel com conusmer
-- Ultimo parametor e o child ele e reponsavel por indicar qual arvore e estatica ou seja nao sofre render
-- Toda vez que aumentar o numero de itens no CartProcutProvider esse consumer sera notificao e renderizara o numero de itemCount
+- Caso eu deseje que ocorra mudanças na árvore apos uma notificação de um provider posso usar o consumer
+- No exemplo abaixo, conforme clica no icone de carrinho, aumenta o número de compras no badge, isso e possível com conusmer
+- Ultimo paramento e o child ele e responsável por indicar qual arvore e estática, ou seja, não sofre render
+- Toda vez que aumentar o número de itens no CartProcutProvider esse consumer serao notificado e renderizara o número de itemCount
 
 ```dart
   Consumer<CartProductProvider>(
