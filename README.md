@@ -1,5 +1,5 @@
 # Shoop 
-Aplicação para entender Provider do flutter</br<
+Aplicação para entender Provider do flutter</br>
 E possível selecionar os favoritos,consultar, colocar no carrinho e consultar os comparados
 
 
